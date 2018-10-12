@@ -34,7 +34,7 @@ Poprawki:
 - Dodawane jest 5 oponek gdy odblokujemy kolejną strefę
 - Zmieniono formułkę w generatorze expa misji.
 
-Wiecej na [Spis wersji](../blob/master/VERSIONS.md)
+Wiecej na [Spis wersji](VERSIONS.md)
 
 ### Dokumentacja
 ...Wkrótce
