@@ -15,7 +15,9 @@ Serwer był pisany w celach edukacyjnych, do użytku prywatnego. Dzielę się ko
 Plik konfiguracyjny znajdziesz w katalogu "**server/config.php**"
 
 ### Spis wersji
+
 **v.0.2 (aktualnie)**
+
 Dodano:
 - Walki band
 - Limit odnowienia energii
