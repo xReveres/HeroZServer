@@ -17,6 +17,8 @@ Poprawki:
 - Dodawane jest 5 oponek gdy odblokujemy kolejną strefę
 - Zmieniono formułkę w generatorze expa misji.
 
+---
+
 **v.0.1a (18.08.2018)**
 Dodano:
 - brak
@@ -29,7 +31,9 @@ Poprawki:
 - Poprawiony pasek na amunicję, gdy skończy nam się amunicja, automatycznie zostaje przeniesiona nowa z paska na amunicję.
 - Klika poprawek silnika serwera
 - Naprawiony błąd z dołączaniem do drużyn, gdy ktoś z drużyny wyśle nam zaproszenie domyślnie aktywne jest ono 3dni, gdy znów otrzymaliśmy od tej samej drużyny co poprzednio zaproszenie występował błąd z informacją o nieaktualnym zaproszeniu.
+
 ---
+
 **v.0.1 (12.08.2018)**
 - Przepisanie silnika
 
