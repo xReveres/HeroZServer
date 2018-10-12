@@ -12,7 +12,7 @@ Serwer był pisany w celach edukacyjnych, do użytku prywatnego. Dzielę się ko
 - Pobierz lub sklonuj repozytorium
 - Umieść pliki na serwerze
 - Stwórz bazę danych importując schemat bazy z pliku database.sql
-Plik konfiguracyjny znajdziesz w katalogu "**server/config.php**"
+- Plik konfiguracyjny znajdziesz w katalogu "**server/config.php**"
 
 ### Spis wersji
 
