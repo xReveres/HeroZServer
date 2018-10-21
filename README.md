@@ -11,7 +11,7 @@ Serwer był pisany w celach edukacyjnych, do użytku prywatnego. Dzielę się ko
 ### Instalacja
 - Pobierz lub sklonuj repozytorium
 - Umieść pliki na serwerze
-- Stwórz bazę danych importując schemat bazy z pliku database.sql
+- Stwórz bazę danych importując schemat bazy z pliku hzpriv.sql
 - Plik konfiguracyjny znajdziesz w katalogu "**server/config.php**"
 
 ### Spis wersji
