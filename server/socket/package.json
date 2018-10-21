@@ -1,0 +1,11 @@
+{
+  "name": "hzpriv",
+  "version": "1.0.0",
+  "description": "HZPriv socket server",
+  "main": "index.js",
+  "author": "Reveres",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.1.1"
+  }
+}

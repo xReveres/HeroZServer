@@ -1,0 +1,8 @@
+# Prevent directory listings
+Options -Indexes
+
+# BEGIN GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE application/json
+</ifmodule>
+# END GZIP

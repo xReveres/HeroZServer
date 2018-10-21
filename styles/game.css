@@ -1,0 +1,164 @@
+@font-face { font-family: 'Dimbo'; src: url('../fonts/Dimbo Regular.ttf');}
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    color: #fff;
+    background-image:url('../img/bg.jpg');
+    background-size:cover;
+    background-color:#dea87c;
+    background-repeat:no-repeat;
+    font-family:'Dimbo',sans-serif;
+    letter-spacing:1px;
+}
+
+#flashContainer {
+    width:900px !important;
+    height:630px !important;
+    display: block;
+    box-sizing: content-box;
+    position:relative;
+}
+
+#top-menu{
+    position:relative;
+    width:100%;
+    z-index:9999;
+}
+
+#altContent{
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:rgb(218, 222, 221);
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    color:#000;
+    font-size:14pt;
+}
+
+#flashArrow{
+    position:absolute;
+    left:290px;
+    top:150px;
+    transform: rotate(180deg);
+    z-index:9999;
+    -webkit-animation: flash 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: flash 2s infinite;
+}
+
+@-webkit-keyframes flash {
+    0% {top: 150px;}
+    50% {top: 230px;}
+    100% {top: 150px;}
+}
+
+@keyframes flash {
+    0% {top: 150px;}
+    50% {top: 230px;}
+    100% {top: 150px;}
+}
+
+#altContent{
+    position:relative;
+    z-index:999;
+}
+
+#altContent #content{
+    position:absolute;
+    width:400px;
+    left:5%;
+    top:20%;
+}
+
+#altContent a{
+    display:block;
+    width:200px;
+    font-size:20pt;
+    padding:10px 0;
+    background-image:url('../img/button.png');
+    background-size:100% 100%;
+    color:#fff;
+    text-align:center;
+    font-weight:bold;
+    text-shadow: 0 2px 10px #000;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+}
+
+#altContent a:hover{
+    background-image:url('../img/button_hover.png');
+}
+
+.btn{
+    display:inline-block;
+    cursor:pointer;
+}
+
+.gameContainer{
+    position:relative;
+    width:1000px;
+    height:685px;
+    margin:5px auto 0 auto;
+    border:solid 50px #222119;
+    border-bottom-width:5px;
+    border-radius:30px 30px 0 0;
+    box-shadow:0px 0px 10px #000;
+    color:#fff;
+}
+
+.topPanel{
+    position:absolute;
+    top:-50px;
+    width:900px;
+    height:50px;
+}
+
+.topPanel .logo{
+    font-size:43px;
+    text-shadow:1px 1px 3px #c0284f;
+}
+
+.midPanel{
+    position:relative;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border:solid 1px black;
+}
+.overflowHide{
+    overflow:hidden;
+}
+
+.rightPanel{
+    position:absolute;
+    right:-50px;
+    width:50px;
+    height:630px;
+}
+
+.gameBtn{
+    background-color:orange;
+}
+
+.language{
+    display:inline-block;
+    float:right;
+    font-size:20px;
+    line-height:33px;
+    text-shadow:1px 1px 2px #000;
+}
+.language .btn{
+    padding:0 15px;
+    height:40px;
+    border-style:solid;
+    border-color:#aa3150;
+    border-top-width:2px;
+    border-bottom-width:5px;
+    border-radius:0 0 50% 50%;
+    background-color:#8d5a10;
+    color:#aaa;
+}
+.language .btn:not(.disabled), .language .btn:hover{
+    background-color:#ef981b;
+    color:#fff;
+}
