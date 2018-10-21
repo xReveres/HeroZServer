@@ -26,7 +26,7 @@ Dodano:
 - Podgląd wysłanych wiadomości
 - Wspomagacze drużynowe
 - Nagrody za codzienne logowanie
-- Kasyno Gamble City
+- ~~Kasyno Gamble City~~ (wyłączone z powodu braku grafiki maszyny, aby włączyć kasyno znajdź *slotmachine_event_end* w konfiguracji i wprowadź datę późniejszą)
 
 Poprawki:
 - Monet za wygraną walkę, obliczało go tak jakbyśmy walkę przegrali
