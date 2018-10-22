@@ -30,8 +30,8 @@ return [
             'forumteams_url'=>  '',
             'facebook_url'=>    '',
             //
-			'resource_cdn'=>    'cdn/proxy.php?a=',
-            //'resource_cdn'=>    'https://hz-static.akamaized.net/',
+			//'resource_cdn'=>    'cdn/proxy.php?a=',
+            'resource_cdn'=>    'https://hz-static.akamaized.net/',
             'public_url'=>      '/',
             'socket_url'=>      '',
             'request_url'=>     'server/request.php',
