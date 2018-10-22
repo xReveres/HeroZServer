@@ -13,6 +13,7 @@ Serwer był pisany w celach edukacyjnych, do użytku prywatnego. Dzielę się ko
 - Umieść pliki na serwerze
 - Stwórz bazę danych importując schemat bazy z pliku hzpriv.sql
 - Plik konfiguracyjny znajdziesz w katalogu "**server/config.php**"
+- Nadać uprawnienia zapisu dla katalogu "**server/cache**" (chmod 777)
 
 ### Spis wersji
 
