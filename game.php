@@ -15,6 +15,14 @@ $cfg = include(__DIR__.'/server/config.php');
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="js/swfobject.js"></script>
 	    <script src="js/js.cookie.js"></script>
+	  	<script type="text/javascript">
+	    	$(function (){
+	    		$(".language").find(".btn").click(function () {
+			        Cookies.set('web-lang', $(this).attr("lang"));
+			        location.reload();
+				});
+	    	});
+	    </script>
     </head>
 	<body>
 		<div class="gameContainer">
