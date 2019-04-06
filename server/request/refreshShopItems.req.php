@@ -10,7 +10,7 @@ class refreshShopItems{
         
         if($player->character->shop_refreshes > 0){
             if($player->getPremium() < 1)
-    			Core::setError("errRemovePremiumCurrencyNotEnough");
+    			return Core::setError("errRemovePremiumCurrencyNotEnough");
     		$player->givePremium(-1);
         }
         
