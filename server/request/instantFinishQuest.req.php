@@ -18,15 +18,15 @@ class instantFinishQuest{
         
         //$skipCost = Utils::getQuestInstantFinishCost($quest["duration_raw"]);
         $skipCost = 1;
-		if($player->user->premium_currency < $skipCost)
-			return Core::setError("errRemovePremiumCurrencyNotEnough");
-		
-		$player->givePremium(-$skipCost);
-		$quest->ts_complete = 0;
-		
-		Core::req()->data = array(
-		    'character'=>$player->character,
-		    'quest'=>array('id'=>$quest->id, 'ts_complete'=>$quest->ts_complete)
-		);
+        if($player->user->premium_currency < $skipCost)
+            return Core::setError("errRemovePremiumCurrencyNotEnough");
+        
+        $player->givePremium(-$skipCost);
+        $quest->ts_complete = 0;
+        
+        Core::req()->data = array(
+            'character'=>$player->character,
+            'quest'=>array('id'=>$quest->id, 'ts_complete'=>$quest->ts_complete)
+        );
     }
 }

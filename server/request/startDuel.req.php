@@ -30,7 +30,7 @@ class startDuel{
             return Core::setError('errNoSuchUser');
         
         if($opponentID == $player->character->id)
-			return Core::setError("errSelfAttackIsNotAllowed");
+            return Core::setError("errSelfAttackIsNotAllowed");
         
         $opponent = Player::findByCharacterId($opponentID);
         $opponent->loadForDuel();
@@ -62,14 +62,14 @@ class startDuel{
         
         Core::req()->data = array(
             "user" => $use_premium?$player->user:[],
-			"character" => $player->character,
-			"duel" => $duelbattle->duel,
-			"battle" => $duelbattle->battle,
-			"opponent" => $opponent->character,
-			"opponent_inventory" => $opponentEq['inventory'],
-			"opponent_inventory_items" => $opponentEq['items'],
-			"inventory" => $player->inventory,
-			"items"=> $player->items
+            "character" => $player->character,
+            "duel" => $duelbattle->duel,
+            "battle" => $duelbattle->battle,
+            "opponent" => $opponent->character,
+            "opponent_inventory" => $opponentEq['inventory'],
+            "opponent_inventory_items" => $opponentEq['items'],
+            "inventory" => $player->inventory,
+            "items"=> $player->items
         );
     }
 }

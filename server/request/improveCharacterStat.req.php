@@ -17,11 +17,11 @@ class improveCharacterStat{
             $player->character->{"stat_base_$stat_name"}++;
         }else{
             $statMoney = Utils::calcNeededCoins($player->character->{"stat_bought_".$stat_name});
-			if($player->getMoney() < $statMoney)
-				return Core::setError("errRemoveGameCurrencyNotEnough");
-			$player->character->{"stat_bought_$stat_name"}++;
-			$player->character->{"stat_base_$stat_name"}++;
-			$player->giveMoney(-$statMoney);
+            if($player->getMoney() < $statMoney)
+                return Core::setError("errRemoveGameCurrencyNotEnough");
+            $player->character->{"stat_bought_$stat_name"}++;
+            $player->character->{"stat_base_$stat_name"}++;
+            $player->giveMoney(-$statMoney);
         }
         $player->calculateStats();
         if(!$player->getTutorialFlag('stats_spent')){

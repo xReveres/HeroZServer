@@ -10,7 +10,7 @@ class sellInventoryItem{
         
         $sell_item = $player->getItemById($item_id);
         if($sell_item == null)
-			Core::setError("invItemId");
+            Core::setError("invItemId");
     
         $slot_name = $player->inventory->getSlotByItemId($item_id);
         

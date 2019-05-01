@@ -128,104 +128,104 @@ class createCharacter{
     
     private function advInfo(){
         $adv = [
-			"show_advertisment"=> false,
-			"show_preroll_advertisment"=> false,
-			"show_left_skyscraper_advertisment"=> false,
-			"show_pop_under_advertisment"=> false,
-			"show_footer_billboard_advertisment"=> false,
-			"advertisment_refresh_rate"=> 15,
-			"mobile_interstitial_cooldown"=> 1800,
-			"remaining_video_advertisment_cooldown__1"=> 0,
-			"video_advertisment_blocked_time__1"=> 1800,
-			"remaining_video_advertisment_cooldown__2"=> 0,
-			"video_advertisment_blocked_time__2"=> 1800,
-			"remaining_video_advertisment_cooldown__3"=> 0,
-			"video_advertisment_blocked_time__3"=> 1800,
-			"remaining_video_advertisment_cooldown__4"=> 0,
-			"video_advertisment_blocked_time__4"=> 1800,
-			"remaining_video_advertisment_cooldown__5"=> 0,
-			"video_advertisment_blocked_time__5"=> 7200
-		];
-		return $adv;
+            "show_advertisment"=> false,
+            "show_preroll_advertisment"=> false,
+            "show_left_skyscraper_advertisment"=> false,
+            "show_pop_under_advertisment"=> false,
+            "show_footer_billboard_advertisment"=> false,
+            "advertisment_refresh_rate"=> 15,
+            "mobile_interstitial_cooldown"=> 1800,
+            "remaining_video_advertisment_cooldown__1"=> 0,
+            "video_advertisment_blocked_time__1"=> 1800,
+            "remaining_video_advertisment_cooldown__2"=> 0,
+            "video_advertisment_blocked_time__2"=> 1800,
+            "remaining_video_advertisment_cooldown__3"=> 0,
+            "video_advertisment_blocked_time__3"=> 1800,
+            "remaining_video_advertisment_cooldown__4"=> 0,
+            "video_advertisment_blocked_time__4"=> 1800,
+            "remaining_video_advertisment_cooldown__5"=> 0,
+            "video_advertisment_blocked_time__5"=> 7200
+        ];
+        return $adv;
     }
     
     private function bonusInfo(){
         $b = array(
-				"quest_energy"=> 0,//$this->characterData["quest_energy"],
-				"duel_stamina"=> 0,//$this->characterData["duel_stamina"],
-				"league_stamina"=> 0,//$this->characterData["league_stamina"],
-				"training_count"=> 0,//$this->characterData["training_count"]
-			);
-		return $b;
+                "quest_energy"=> 0,//$this->characterData["quest_energy"],
+                "duel_stamina"=> 0,//$this->characterData["duel_stamina"],
+                "league_stamina"=> 0,//$this->characterData["league_stamina"],
+                "training_count"=> 0,//$this->characterData["training_count"]
+            );
+        return $b;
     }
     
     private function itemPatt(){
         $patt = [
-			"biker"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"costume"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"disco"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"doctor"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"movie"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"robinhood"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"superherozero"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"superheroset1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"superheroset2"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"superheroset3"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"olympia_2016_rio"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"asian"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"frogman1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"ironman1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"movienew"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"musketeer"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"overall"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"powerset1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"powerset2"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"safari"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"nano"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"pirates"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"wrestling"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"octoberfest"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"halloween"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"superhero"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"work"=>["value" => 0,"collected_items" => null,"is_new" => false], 
-			"league_custom1"=>["value" => 0,"collected_items" => null,"is_new" => true], 
-			"league_custom2"=>["value" => 0,"collected_items" => null,"is_new" => true], 
-			"xmas"=>["value" => 0,"collected_items" => null,"is_new" => true]
-		];
-		return $patt;
+            "biker"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "costume"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "disco"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "doctor"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "movie"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "robinhood"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "superherozero"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "superheroset1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "superheroset2"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "superheroset3"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "olympia_2016_rio"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "asian"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "frogman1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "ironman1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "movienew"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "musketeer"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "overall"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "powerset1"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "powerset2"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "safari"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "nano"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "pirates"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "wrestling"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "octoberfest"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "halloween"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "superhero"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "work"=>["value" => 0,"collected_items" => null,"is_new" => false], 
+            "league_custom1"=>["value" => 0,"collected_items" => null,"is_new" => true], 
+            "league_custom2"=>["value" => 0,"collected_items" => null,"is_new" => true], 
+            "xmas"=>["value" => 0,"collected_items" => null,"is_new" => true]
+        ];
+        return $patt;
     }
     
     private function notif(){
         $t = array(
-			"mission_finished"=> array(
-				"id"=> 1,
-				"active"=> true,
-				"vibrate"=> false,
-				"title"=> "Hero Zero (MAXGame)",
-				"body"=> "Twoja misja została zakończona."
-			),
-			"training_finished"=> array(
-				"id"=> 2,
-				"active"=> true,
-				"vibrate"=> false,
-				"title"=> "Hero Zero (MAXGame)",
-				"body"=> "Twój trening został zakończony."
-			),
-			"work_finished"=> array(
-				"id"=> 3,
-				"active"=> true,
-				"vibrate"=> false,
-				"title"=> "Hero Zero (MAXGame)",
-				"body"=> "Twoja praca jest zakończona."
-			),
-			"free_duel_available"=> array(
-				"id"=> 4,
-				"active"=> true,
-				"vibrate"=> false,
-				"title"=> "Hero Zero (MAXGame)",
-				"body"=> "Znowu masz wystarczająco dużo odwagi na swobodny atak."
-			)
-		);
-		return $t;
+            "mission_finished"=> array(
+                "id"=> 1,
+                "active"=> true,
+                "vibrate"=> false,
+                "title"=> "Hero Zero (MAXGame)",
+                "body"=> "Twoja misja została zakończona."
+            ),
+            "training_finished"=> array(
+                "id"=> 2,
+                "active"=> true,
+                "vibrate"=> false,
+                "title"=> "Hero Zero (MAXGame)",
+                "body"=> "Twój trening został zakończony."
+            ),
+            "work_finished"=> array(
+                "id"=> 3,
+                "active"=> true,
+                "vibrate"=> false,
+                "title"=> "Hero Zero (MAXGame)",
+                "body"=> "Twoja praca jest zakończona."
+            ),
+            "free_duel_available"=> array(
+                "id"=> 4,
+                "active"=> true,
+                "vibrate"=> false,
+                "title"=> "Hero Zero (MAXGame)",
+                "body"=> "Znowu masz wystarczająco dużo odwagi na swobodny atak."
+            )
+        );
+        return $t;
     }
 }

@@ -7,16 +7,16 @@ class removeBankItemToInventory{
     
     public function __request($player){
         $targetID = intval(getField("target_slot", FIELD_NUM));
-		$itemID = intval(getField("item_id", FIELD_NUM));
-		
-		if($targetID < 9 || $targetID > 26)
-			return Core::setError('errInventoryInvalidItem');
-		$targetID -= 8;
-		
-		$item = $player->getItemById($itemID);
-		if($item == null)
-		    return Core::setError('errInventoryInvalidItem');
-		    
+        $itemID = intval(getField("item_id", FIELD_NUM));
+        
+        if($targetID < 9 || $targetID > 26)
+            return Core::setError('errInventoryInvalidItem');
+        $targetID -= 8;
+        
+        $item = $player->getItemById($itemID);
+        if($item == null)
+            return Core::setError('errInventoryInvalidItem');
+            
         $bank_slot_name = $player->bankinv->getSlotByItemId($item->id);
         if($bank_slot_name == null)
             return Core::setError('errInventoryInvalidItem');

@@ -34,13 +34,13 @@ class buyGuildBooster{
         }
         
         $actId = 'active_'.$types[$booster['type']-1].'_booster_id';
-		$tsCol = 'ts_active_'.$types[$booster['type']-1].'_boost_expires';
-		
-		$player->guild->{$actId} = $id;
-		$addTime = time();
-		if(!$overrideBooster && $extendBooster)
-		    $addTime = $player->guild->{$tsCol};
-		$player->guild->{$tsCol} = $addTime + $booster['duration'];
+        $tsCol = 'ts_active_'.$types[$booster['type']-1].'_boost_expires';
+        
+        $player->guild->{$actId} = $id;
+        $addTime = time();
+        if(!$overrideBooster && $extendBooster)
+            $addTime = $player->guild->{$tsCol};
+        $player->guild->{$tsCol} = $addTime + $booster['duration'];
         
         Core::req()->data['guild']=$player->guild;
         if($booster['type'] == 1)

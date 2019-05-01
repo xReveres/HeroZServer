@@ -19,13 +19,13 @@ class BankInventory extends Record implements JsonSerializable{
     
     public function getSlotByItemId($id){
         $id = intval($id);
-		foreach($this->getData() as $iKey => $iVal){
-			if($iKey == "id" || $iKey == "character_id" || $iKey == "max_bank_index")
-				continue;
-			if($iVal == $id)
-				return $iKey;
-		}
-		return null;
+        foreach($this->getData() as $iKey => $iVal){
+            if($iKey == "id" || $iKey == "character_id" || $iKey == "max_bank_index")
+                continue;
+            if($iVal == $id)
+                return $iKey;
+        }
+        return null;
     }
     
     public function jsonSerialize() {

@@ -28,7 +28,7 @@ function array_path_set($path, $val, &$array){
 
 function recursive_implode($myArray)
 {
-	$ritit = new RecursiveIteratorIterator(new RecursiveArrayIterator($myArray));
+    $ritit = new RecursiveIteratorIterator(new RecursiveArrayIterator($myArray));
     $result = array();
     foreach ($ritit as $leafValue) {
         $keys = array();
@@ -42,8 +42,8 @@ function recursive_implode($myArray)
 
 function is_assoc($arr){
     foreach(array_keys($arr) as $i=>$key)
-		if ($i!=$key) return TRUE;
-	return FALSE;
+        if ($i!=$key) return TRUE;
+    return FALSE;
 }
 
 function getclientip(){
@@ -162,16 +162,16 @@ function parseURL($key = null)
 }
 
 function redirect($url=null, $time=0, $ex = true){
-	if($url === null)
-		$url = currentURL();
-	if(is_array($url))
-		$url = url($url);
-	if($time>0)
-	    header('refresh:'.$time.';url='.$url);
-	else
-	    header('Location:'.$url);
-	if($ex)
-		exit();
+    if($url === null)
+        $url = currentURL();
+    if(is_array($url))
+        $url = url($url);
+    if($time>0)
+        header('refresh:'.$time.';url='.$url);
+    else
+        header('Location:'.$url);
+    if($ex)
+        exit();
 }
 
 function reformatdate($format, $olddate){
@@ -221,11 +221,11 @@ function clamp($min, $max, $value){
 }
 
 function cast($object, $class) {
-	$cls = new $class();
-	$vars = get_public_vars($cls);
-	foreach($vars as $k=>$v)
-	    $cls->{$k} = $object->{$k};
-	return $cls;
+    $cls = new $class();
+    $vars = get_public_vars($cls);
+    foreach($vars as $k=>$v)
+        $cls->{$k} = $object->{$k};
+    return $cls;
 }
 
 function get_public_vars($object){

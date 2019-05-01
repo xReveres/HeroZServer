@@ -61,8 +61,8 @@ class retrieveGuildLeaderboard{
         
         Core::req()->data = array(
             "leaderboard_guilds" => $lb,
-			"max_guilds" => $max_guilds,
-			"centered_rank" => $centerRank
+            "max_guilds" => $max_guilds,
+            "centered_rank" => $centerRank
         );
     }
 }

@@ -16,9 +16,9 @@ class sendGuildChatMessage{
         
         $toCharacter = false;
         if($toCharacterName && strlen($toCharacterName) > 0)
-        	$toCharacter = Character::find(function($q)use($toCharacterName){ $q->where('name',$toCharacterName); })->id;
+            $toCharacter = Character::find(function($q)use($toCharacterName){ $q->where('name',$toCharacterName); })->id;
         
-		$player->guild->sendMessage($player, $message, $officer_message, $toCharacter);
+        $player->guild->sendMessage($player, $message, $officer_message, $toCharacter);
         
         Core::req()->data = array();
     }

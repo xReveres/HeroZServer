@@ -13,17 +13,17 @@ class moveInventoryItem{
         
         $source_item = $player->getItemById($item_id);
         if($source_item == null)
-			return Core::setError("errNullItem");
-		$source_slotname = $player->inventory->getSlotByItemId($item_id);
-			
-		switch($action_type){
-		    case 0:{ //MoveItem
-		        if($target_slot < 8 || $target_slot > 26)
+            return Core::setError("errNullItem");
+        $source_slotname = $player->inventory->getSlotByItemId($item_id);
+            
+        switch($action_type){
+            case 0:{ //MoveItem
+                if($target_slot < 8 || $target_slot > 26)
                     return Core::setError('errInvSlot');
                 $target_slotname = "bag_item".($target_slot-8)."_id";
                 $target_item = $player->getItemFromSlot($target_slotname);
-		        break;
-		    }
+                break;
+            }
             case 1: break; //BuyItem
             case 2: break; //SellItem
             case 3:{ //EquipItem
@@ -46,9 +46,9 @@ class moveInventoryItem{
                 }
             }
             case 5: break; //NewItems
-		}
-		
-		$player->setItemInInventory($target_item, $source_slotname);
+        }
+        
+        $player->setItemInInventory($target_item, $source_slotname);
         $player->setItemInInventory($source_item, $target_slotname);
         
         $player->calculateStats();

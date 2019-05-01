@@ -23,24 +23,24 @@ class improveGuildStat{
             return Core::setError('');
         
         $building_cost = Config::get("constants.guild_{$statname}_costs")[$player->guild->{$statname}+1];
-		if($player->guild->getMoney() < $building_cost["game_currency_cost"])
-			return Core::setError("errRemoveGameCurrencyNotEnough");
-			
-		if($player->guild->getPremium() < $building_cost["premium_currency_cost"])
-			return Core::setError("errRemovePremiumCurrencyNotEnough");
-			
-		$player->guild->giveMoney(-$building_cost["game_currency_cost"]);
-		$player->guild->givePremium(-$building_cost["premium_currency_cost"]);
-		$player->guild->{$statname}++;
-		
-		$player->guild->addLog($player, GuildLogType::GuildStatChanged, $guild_stat, $player->guild->{$statname});
+        if($player->guild->getMoney() < $building_cost["game_currency_cost"])
+            return Core::setError("errRemoveGameCurrencyNotEnough");
+            
+        if($player->guild->getPremium() < $building_cost["premium_currency_cost"])
+            return Core::setError("errRemovePremiumCurrencyNotEnough");
+            
+        $player->guild->giveMoney(-$building_cost["game_currency_cost"]);
+        $player->guild->givePremium(-$building_cost["premium_currency_cost"]);
+        $player->guild->{$statname}++;
+        
+        $player->guild->addLog($player, GuildLogType::GuildStatChanged, $guild_stat, $player->guild->{$statname});
 
         Core::req()->data = [
             'guild'=>$player->guild
         ];
-		if($guild_stat == 1){//Booster na doświadczenia podstawowe
-		    $player->calculateStats();
-		    Core::req()->data['character'] = $player->character;
-		}
+        if($guild_stat == 1){//Booster na doświadczenia podstawowe
+            $player->calculateStats();
+            Core::req()->data['character'] = $player->character;
+        }
     }
 }

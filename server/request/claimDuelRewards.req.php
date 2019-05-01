@@ -16,11 +16,11 @@ class claimDuelRewards{
         
         Core::req()->data = array(
             "user" => array(),
-			"character" => $player->character,
-			"duel" => [
-				"id" => $player->duel->id,
-				"character_a_status" => 3
-			]
+            "character" => $player->character,
+            "duel" => [
+                "id" => $player->duel->id,
+                "character_a_status" => 3
+            ]
         );
         
         //TODO: remove missile item

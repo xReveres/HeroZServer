@@ -19,13 +19,13 @@ class kickGuildMember{
             return Core::setError('');
         
         if($member->player->character->guild_id != $player->character->guild_id)
-			return Core::setError("errKickMemberInvalidGuild");
-		
-		if($member->player->character->guild_id == 0)
-			return Core::setError("errCharacterNoGuild");
-		
-		if($member->player->character->guild_rank < $player->character->guild_rank)
-			return Core::setError("errKickMemberNotKickable");
+            return Core::setError("errKickMemberInvalidGuild");
+        
+        if($member->player->character->guild_id == 0)
+            return Core::setError("errCharacterNoGuild");
+        
+        if($member->player->character->guild_rank < $player->character->guild_rank)
+            return Core::setError("errKickMemberNotKickable");
         
         $member->player->character->guild_id = 0;
         $member->player->character->guild_rank = 0;

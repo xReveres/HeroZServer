@@ -13,7 +13,7 @@ class donateToGuild{
         $premium_curr = intval(getField('premium_currency_amount', FIELD_NUM));
         
         if($game_curr < 0 || $premium_curr < 0)
-			return Core::setError('');
+            return Core::setError('');
         
         if($player->getMoney() < $game_curr)
             return Core::setError('errRemoveGameCurrencyNotEnough');

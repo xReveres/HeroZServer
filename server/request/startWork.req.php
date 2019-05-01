@@ -21,21 +21,21 @@ class startWork{
         $tscomplete = ($duration * 3600) + time();
         $coins = Utils::getWorkCoinReward($player->getLVL(), 0, $duration * 3600);
         
-		if(($booster = $player->getBoosters('work')) != null)
-			$coins *= (1+ (Config::get("constants.boosters.$booster.amount")/100));
-		if($player->character->guild_id != 0)
-		    $coins *= (1+ (($player->guild->stat_quest_game_currency_reward_boost*2)/100));
+        if(($booster = $player->getBoosters('work')) != null)
+            $coins *= (1+ (Config::get("constants.boosters.$booster.amount")/100));
+        if($player->character->guild_id != 0)
+            $coins *= (1+ (($player->guild->stat_quest_game_currency_reward_boost*2)/100));
 
-		$rewards = Utils::rewards(round($coins));
-		
-		$work = new Work([
-		    'character_id'=> $player->character->id,
-		    'ts_complete'=> $tscomplete,
-		    'duration'=> $duration,
-		    'rewards'=>$rewards,
-		    'status'=> 2
-		]);
-		$work->save();
+        $rewards = Utils::rewards(round($coins));
+        
+        $work = new Work([
+            'character_id'=> $player->character->id,
+            'ts_complete'=> $tscomplete,
+            'duration'=> $duration,
+            'rewards'=>$rewards,
+            'status'=> 2
+        ]);
+        $work->save();
         $player->character->active_work_id = $work->id;
         $player->work = $work;
         

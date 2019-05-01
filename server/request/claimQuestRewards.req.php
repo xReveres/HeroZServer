@@ -34,11 +34,11 @@ class claimQuestRewards{
         $player->generateQuestsAtStage($quest->stage, 3);
         
         Core::req()->data = array(
-			"user" => $player->user,
-			"character" => $player->character,
-			"quests" => $player->quests,
-			"inventory" => array()
-			//"items" => array() Wtedy gdy nowa misja jest z itemem
-		);
+            "user" => $player->user,
+            "character" => $player->character,
+            "quests" => $player->quests,
+            "inventory" => array()
+            //"items" => array() Wtedy gdy nowa misja jest z itemem
+        );
     }
 }

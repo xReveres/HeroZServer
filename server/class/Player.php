@@ -367,29 +367,29 @@ class Player extends Entity{
         //
         if($newLVL > $this->character->level)
             $this->character->stat_points_available += ($newLVL - $this->character->level) * Config::get('constants.level_up_stat_points');
-		//
+        //
         if($this->character->level != $newLVL){
             $this->character->level = $newLVL;
             //
             $max_stages = $this->character->max_quest_stage;
-    		$unlock_stage = $this->calculateStages();
-    		if($unlock_stage > $max_stages){
-    		    $this->givePremium(($unlock_stage - $max_stages) * Config::get('constants.stage_level_up_premium_amount'));
-    			for($i=$max_stages + 1; $i <= $unlock_stage; $i++)
-    			    $this->generateQuestsAtStage($i, 3);
-    		}
-    		$this->character->max_quest_stage = $unlock_stage;
+            $unlock_stage = $this->calculateStages();
+            if($unlock_stage > $max_stages){
+                $this->givePremium(($unlock_stage - $max_stages) * Config::get('constants.stage_level_up_premium_amount'));
+                for($i=$max_stages + 1; $i <= $unlock_stage; $i++)
+                    $this->generateQuestsAtStage($i, 3);
+            }
+            $this->character->max_quest_stage = $unlock_stage;
         }
     }
     
     public function calculateStages(){
-		$stages = Config::get('constants.stages');
-		for($i=1, $c = count($stages)-1; $i <= $c; $i++){
-			if($this->character->level >= $stages[$i]["min_level"] && $this->character->level < $stages[$i+1]["min_level"])
-				return $i;
-		}
-		return count($stages);
-	}
+        $stages = Config::get('constants.stages');
+        for($i=1, $c = count($stages)-1; $i <= $c; $i++){
+            if($this->character->level >= $stages[$i]["min_level"] && $this->character->level < $stages[$i+1]["min_level"])
+                return $i;
+        }
+        return count($stages);
+    }
     
     public function giveRewards($rew){
         if(is_string($rew))
@@ -415,20 +415,20 @@ class Player extends Entity{
     }
     
     public function getBoosters($type=false){
-		$b = ["quest"=>null, "stats"=>null, "work"=>null];
-		if($this->character->ts_active_quest_boost_expires > time()){
-			$b["quest"] = $this->character->active_quest_booster_id;
-		}
-		if($this->character->ts_active_stats_boost_expires > time()){
-			$b["stats"] = $this->character->active_stats_booster_id;
-		}
-		if($this->character->ts_active_work_boost_expires > time()){
-			$b["work"] = $this->character->active_work_booster_id;
-		}
-		return !$type?$b:$b[$type];
-	}
-	
-	public function hasMultitasking(){
+        $b = ["quest"=>null, "stats"=>null, "work"=>null];
+        if($this->character->ts_active_quest_boost_expires > time()){
+            $b["quest"] = $this->character->active_quest_booster_id;
+        }
+        if($this->character->ts_active_stats_boost_expires > time()){
+            $b["stats"] = $this->character->active_stats_booster_id;
+        }
+        if($this->character->ts_active_work_boost_expires > time()){
+            $b["work"] = $this->character->active_work_booster_id;
+        }
+        return !$type?$b:$b[$type];
+    }
+    
+    public function hasMultitasking(){
         return $this->character->ts_active_multitasking_boost_expires == -1 || $this->character->ts_active_multitasking_boost_expires > time();
     }
     
@@ -490,14 +490,14 @@ class Player extends Entity{
         $inventory=[];
         $items=[];
         for($i=1; $i<=8; $i++){
-			$itemName = Item::$TYPE[$i];
-			$item = $this->getItemFromSlot("{$itemName}_item_id");
-			$inventory["{$itemName}_item_id"] = $item==null?0:$item->id;
-			if($item != null)
-				$items[] = $item;
-		}
-		$inventory["sidekick_id"] = $this->getItemFromSlot("sidekick_id")==null?0:$this->getItemFromSlot("sidekick_id");
-		$inventory["item_set_data"] = $this->getItemFromSlot("item_set_data")==null?0:$this->getItemFromSlot("item_set_data");
+            $itemName = Item::$TYPE[$i];
+            $item = $this->getItemFromSlot("{$itemName}_item_id");
+            $inventory["{$itemName}_item_id"] = $item==null?0:$item->id;
+            if($item != null)
+                $items[] = $item;
+        }
+        $inventory["sidekick_id"] = $this->getItemFromSlot("sidekick_id")==null?0:$this->getItemFromSlot("sidekick_id");
+        $inventory["item_set_data"] = $this->getItemFromSlot("item_set_data")==null?0:$this->getItemFromSlot("item_set_data");
         return array('inventory'=>$inventory, 'items'=>$items);
     }
     

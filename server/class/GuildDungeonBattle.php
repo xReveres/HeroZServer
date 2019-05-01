@@ -69,26 +69,26 @@ class GuildDungeonBattle{
         $data = [
             'profile'=> $op->profile,
             'name'=> $op->character->name,
-			'gender'=> $op->character->gender,
-			'level'=> $op->getLVL(),
-			'position'=> $counter+1,
-			'stamina'=> $op->stamina,
-			'total_stamina'=> $op->total_stamina,
-			'strength'=> $op->strength,
-			'criticalrating'=> $op->criticalrating,
-			'dodgerating'=> $op->dodgerating,
-			'weapondamage'=> $op->weapondamage,
-			'appearance_skin_color'=> $op->character->appearance_skin_color,
-			'appearance_hair_color'=> $op->character->appearance_hair_color,
-			'appearance_hair_type'=> $op->character->appearance_hair_type,
-			'appearance_head_type'=> $op->character->appearance_head_type,
-			'appearance_eyes_type'=> $op->character->appearance_eyes_type,
-			'appearance_eyebrows_type'=> $op->character->appearance_eyebrows_type,
-			'appearance_nose_type'=> $op->character->appearance_nose_type,
-			'appearance_mouth_type'=> $op->character->appearance_mouth_type,
-			'appearance_facial_hair_type'=> $op->character->appearance_facial_hair_type,
-			'appearance_decoration_type'=> $op->character->appearance_decoration_type,
-			'show_mask'=> $op->character->show_mask
+            'gender'=> $op->character->gender,
+            'level'=> $op->getLVL(),
+            'position'=> $counter+1,
+            'stamina'=> $op->stamina,
+            'total_stamina'=> $op->total_stamina,
+            'strength'=> $op->strength,
+            'criticalrating'=> $op->criticalrating,
+            'dodgerating'=> $op->dodgerating,
+            'weapondamage'=> $op->weapondamage,
+            'appearance_skin_color'=> $op->character->appearance_skin_color,
+            'appearance_hair_color'=> $op->character->appearance_hair_color,
+            'appearance_hair_type'=> $op->character->appearance_hair_type,
+            'appearance_head_type'=> $op->character->appearance_head_type,
+            'appearance_eyes_type'=> $op->character->appearance_eyes_type,
+            'appearance_eyebrows_type'=> $op->character->appearance_eyebrows_type,
+            'appearance_nose_type'=> $op->character->appearance_nose_type,
+            'appearance_mouth_type'=> $op->character->appearance_mouth_type,
+            'appearance_facial_hair_type'=> $op->character->appearance_facial_hair_type,
+            'appearance_decoration_type'=> $op->character->appearance_decoration_type,
+            'show_mask'=> $op->character->show_mask
         ];
         $eqItems = $op->getOnlyEquipedItems()['items'];
         foreach($eqItems as $it){
@@ -102,13 +102,13 @@ class GuildDungeonBattle{
     private function NPCAppearance($op, $counter){
         $data = [
             'profile'=> $op->profile,
-			'level'=> $op->getLVL(),
-			'stamina'=> $op->stamina,
-			'strength'=> $op->strength,
-			'criticalrating'=> $op->criticalrating,
-			'dodgerating'=> $op->dodgerating,
-			'weapondamage'=> $op->weapondamage,
-			''
+            'level'=> $op->getLVL(),
+            'stamina'=> $op->stamina,
+            'strength'=> $op->strength,
+            'criticalrating'=> $op->criticalrating,
+            'dodgerating'=> $op->dodgerating,
+            'weapondamage'=> $op->weapondamage,
+            ''
         ];
         return $data;
     }

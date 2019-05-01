@@ -124,16 +124,16 @@ class Guild extends DBGuild implements JsonSerializable{
     
     public function getBoosters($type=false){
         $b = ["training"=>null, "quest"=>null, "duel"=>null];
-		if($this->ts_active_training_boost_expires > time()){
-			$b["training"] = $this->active_training_booster_id;
-		}
-		if($this->ts_active_quest_boost_expires > time()){
-			$b["quest"] = $this->active_quest_booster_id;
-		}
-		if($this->ts_active_duel_boost_expires > time()){
-			$b["duel"] = $this->active_duel_booster_id;
-		}
-		return !$type?$b:$b[$type];
+        if($this->ts_active_training_boost_expires > time()){
+            $b["training"] = $this->active_training_booster_id;
+        }
+        if($this->ts_active_quest_boost_expires > time()){
+            $b["quest"] = $this->active_quest_booster_id;
+        }
+        if($this->ts_active_duel_boost_expires > time()){
+            $b["duel"] = $this->active_duel_booster_id;
+        }
+        return !$type?$b:$b[$type];
     }
     
     public function totalImprovementPercentage(){
@@ -156,14 +156,14 @@ class Guild extends DBGuild implements JsonSerializable{
             $data['character_name'] = $player->character->name;
         }
         $guildLog = new GuildLogs($data);
-		$guildLog->save();
-		if(Core::player()->guild->id == $this->id)
-		    Core::req()->append['guild_log']["{$guildLog->timestamp}_{$guildLog->id}"] = $guildLog;
-	}
-	
-	public function sendMessage($player, $message, $is_officer, $toCharacterId){
-	    $guildMsg = new GuildMessages([
-	        'guild_id' => $this->id,
+        $guildLog->save();
+        if(Core::player()->guild->id == $this->id)
+            Core::req()->append['guild_log']["{$guildLog->timestamp}_{$guildLog->id}"] = $guildLog;
+    }
+    
+    public function sendMessage($player, $message, $is_officer, $toCharacterId){
+        $guildMsg = new GuildMessages([
+            'guild_id' => $this->id,
             'character_from_id' => $player->character->id,
             'character_from_name' => $player->character->name,
             'character_to_id' => $toCharacterId?$toCharacterId:0,
@@ -171,9 +171,9 @@ class Guild extends DBGuild implements JsonSerializable{
             'is_private' => $toCharacterId?1:0,
             'message' => $message,
             'timestamp' => time()
-	    ]);
-	    $guildMsg->save();
-	}
+        ]);
+        $guildMsg->save();
+    }
     
     public function getLogs($player, $timestamp=false){
         //DB::sql("DELETE l FROM guild_logs l JOIN (SELECT tt.timestamp FROM guild_logs tt ORDER BY tt.timestamp DESC OFFSET 15 LIMIT 1 ) tt ON l.timestamp < tt.timestamp");

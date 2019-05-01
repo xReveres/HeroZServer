@@ -33,7 +33,7 @@ class GuildLogType{
     const GuildDungeonBattle_Joined = 203;
     const GuildDungeonBattle_BattleWon = 204;
     const GuildDungeonBattle_BattleWon_FirstTry = 205;
-	const GuildDungeonBattle_BattleLost = 206;
+    const GuildDungeonBattle_BattleLost = 206;
     const GuildDungeonBattle_ImprovementPoint_Rewarded = 207;
     const GuildDungeonBattle_Missiles_Rewarded = 208;
     const GuildDungeonBattle_PremiumCurrency_Rewarded = 209;

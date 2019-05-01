@@ -17,7 +17,7 @@ class renameGuild{
         $name = trim(strip_tags($name));
         
         if(!$name || strlen($name) < Config::get('constants.guild_name_length_min') || strlen($name) > Config::get('constants.guild_name_length_max'))
-			return Core::setError("errCreateInvalidName");
+            return Core::setError("errCreateInvalidName");
         
         if($player->guild->name == $name)
             return Core::setError('errRenameSameName');
@@ -26,9 +26,9 @@ class renameGuild{
         if($player->guild->getPremium() < $cost)
             return Core::setError('errRemovePremiumCurrencyNotEnough');
             
-		$guild = Guild::exists(function($q)use($name){ $q->where('name',$name); });
-		if($guild)
-		    return Core::setError("errRenameNameAlreadyExists");
+        $guild = Guild::exists(function($q)use($name){ $q->where('name',$name); });
+        if($guild)
+            return Core::setError("errRenameNameAlreadyExists");
         
         $player->guild->givePremium(-$cost);
         $player->guild->name = $name;

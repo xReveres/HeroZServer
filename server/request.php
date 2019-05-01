@@ -21,7 +21,7 @@ require_once(SERVER_DIR.'/src/Utils/autoloader.php');
 $_exectime = (microtime(true) - START_TIME);
 {
     header('X-Powered-By: Reveres');
-	header('X-Github-Source: https://github.com/xReveres/HeroZServer');
+    header('X-Github-Source: https://github.com/xReveres/HeroZServer');
     header('X-PHP-Version:'.phpversion());
     header('X-Server: What are you looking for ? This is not allowed, so go from here, and search friends somewhere else.');
     header('X-XSS-Protection: 1; mode=block');

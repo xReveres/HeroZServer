@@ -18,9 +18,9 @@ class getMessage{
             $msg->readed = true;
         
         Core::req()->data = array(
-			"user" => [],
-			"character" => [],
-			"message" => $msg
-		);
+            "user" => [],
+            "character" => [],
+            "message" => $msg
+        );
     }
 }

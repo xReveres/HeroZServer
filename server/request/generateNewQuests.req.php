@@ -11,9 +11,9 @@ class generateNewQuests{
         
         $max_stages = $player->character->max_quest_stage;
         $single_refresh = Utils::getQuestRefreshCost($all_stages, $max_stages);
-		if($player->getPremium() < $single_refresh)
-		    return Core::setError("errRemovePremiumCurrencyNotEnough");
-		$player->givePremium(-$single_refresh);
+        if($player->getPremium() < $single_refresh)
+            return Core::setError("errRemovePremiumCurrencyNotEnough");
+        $player->givePremium(-$single_refresh);
         
         if($all_stages){ //wszystkie stage
             for($stage = 1; $stage <= $max_stages; $stage++)

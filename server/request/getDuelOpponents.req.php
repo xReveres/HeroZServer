@@ -24,17 +24,17 @@ class getDuelOpponents{
             $o->loadForDuel();
             $oppData[] = [
                 "id" => $o->character->id,
-    			"name" => $o->character->name,
-    			"level" => $o->character->level,
-    			"honor" => $o->character->honor,
-    			"gender" => $o->character->gender,
-    			"stat_total_stamina" => $o->character->stat_total_stamina,
-    			"stat_total_strength" => $o->character->stat_total_strength,
-    			"stat_total_critical_rating" => $o->character->stat_total_critical_rating,
-    			"stat_total_dodge_rating" => $o->character->stat_total_dodge_rating,
-    			"stat_weapon_damage" => $o->character->stat_weapon_damage,
-    			"online_status" => $o->character->online_status,
-    			"total_stats" => $o->character->stat_total
+                "name" => $o->character->name,
+                "level" => $o->character->level,
+                "honor" => $o->character->honor,
+                "gender" => $o->character->gender,
+                "stat_total_stamina" => $o->character->stat_total_stamina,
+                "stat_total_strength" => $o->character->stat_total_strength,
+                "stat_total_critical_rating" => $o->character->stat_total_critical_rating,
+                "stat_total_dodge_rating" => $o->character->stat_total_dodge_rating,
+                "stat_weapon_damage" => $o->character->stat_weapon_damage,
+                "online_status" => $o->character->online_status,
+                "total_stats" => $o->character->stat_total
             ];
         }
         

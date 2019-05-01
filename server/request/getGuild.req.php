@@ -14,8 +14,8 @@ class getGuild{
             return Core::setError('errNoSuchGuild');
         
         Core::req()->data = array(
-			"requested_guild" => $guild,
-			"requested_guild_members" => $guild->getMembers()
-		);
+            "requested_guild" => $guild,
+            "requested_guild_members" => $guild->getMembers()
+        );
     }
 }

@@ -130,58 +130,58 @@ class Utils{
     
     public static function refreshShopItems($player){
         $chance_rare = Config::get('constants.item_quality_chance_rare');
-		$chance_epic = Config::get('constants.item_quality_chance_epic');
-		$items_rare = 0;
-		$items_epic = 0;
-		$items_premium = 0;
-		$max_rare = Config::get('constants.shop_max_rare_items');
-		$max_epic = Config::get('constants.shop_max_epic_items');
-		$max_premium = Config::get('constants.shop_max_premium_items');
-		$lvl = $player->getLVL();
-		for($i=0; $i < 9; $i++){
-			$quality = 1;
-			if(random() < $chance_epic && $items_epic < $max_epic)
-				$quality = 3;
-			if(random() < $chance_rare && $items_rare < $max_rare)
-				$quality = 2;
-			
-			do{
-				$type = mt_rand(1, 11);
-				if($type == 9 || $type == 10) $type -= 7;
-				$item = ItemsList::$ITEMS[Item::$TYPE[$type]][mt_rand(0, count(ItemsList::$ITEMS[Item::$TYPE[$type]])-1)];
-			}while(($item["quality"] != $quality || $item["required_level"] > $lvl));
-			
-			$shpit = $player->getItemFromSlot('shop_item'.($i+1).'_id');
-		    if($shpit == null)
-		        $shpit = $player->createItem($item);
-		    else
-		        $shpit->setData($item);
-			
-			if($item['type'] == Item::$TYPE_ID['missiles']){
-			    $shpit->charges = 100;
-			    $shpit->stat_critical_rating = $shpit->stat_dodge_rating = $shpit->stat_stamina = $shpit->stat_strength = $shpit->stat_weapon_damage = 0;
-			}else{
-			    $shpit = static::randomiseItem($shpit, $player->getLVL());
-			    if($item['type'] == Item::$TYPE_ID['weapon'])
-			        $shpit->stat_weapon_damage = round($shpit->item_level * Config::get('constants.item_weapon_damage_factor'));
+        $chance_epic = Config::get('constants.item_quality_chance_epic');
+        $items_rare = 0;
+        $items_epic = 0;
+        $items_premium = 0;
+        $max_rare = Config::get('constants.shop_max_rare_items');
+        $max_epic = Config::get('constants.shop_max_epic_items');
+        $max_premium = Config::get('constants.shop_max_premium_items');
+        $lvl = $player->getLVL();
+        for($i=0; $i < 9; $i++){
+            $quality = 1;
+            if(random() < $chance_epic && $items_epic < $max_epic)
+                $quality = 3;
+            if(random() < $chance_rare && $items_rare < $max_rare)
+                $quality = 2;
+            
+            do{
+                $type = mt_rand(1, 11);
+                if($type == 9 || $type == 10) $type -= 7;
+                $item = ItemsList::$ITEMS[Item::$TYPE[$type]][mt_rand(0, count(ItemsList::$ITEMS[Item::$TYPE[$type]])-1)];
+            }while(($item["quality"] != $quality || $item["required_level"] > $lvl));
+            
+            $shpit = $player->getItemFromSlot('shop_item'.($i+1).'_id');
+            if($shpit == null)
+                $shpit = $player->createItem($item);
+            else
+                $shpit->setData($item);
+            
+            if($item['type'] == Item::$TYPE_ID['missiles']){
+                $shpit->charges = 100;
+                $shpit->stat_critical_rating = $shpit->stat_dodge_rating = $shpit->stat_stamina = $shpit->stat_strength = $shpit->stat_weapon_damage = 0;
+            }else{
+                $shpit = static::randomiseItem($shpit, $player->getLVL());
+                if($item['type'] == Item::$TYPE_ID['weapon'])
+                    $shpit->stat_weapon_damage = round($shpit->item_level * Config::get('constants.item_weapon_damage_factor'));
                 else
                     $shpit->stat_weapon_damage = 0;
-			}
-			if($item['type'] == Item::$TYPE_ID['reskill']){
-			    $shpit->stat_critical_rating = $shpit->stat_dodge_rating = $shpit->stat_stamina = $shpit->stat_strength = $shpit->stat_weapon_damage = 0;
-			    $shpit->buy_price = 39;
-			    $shpit->premium_item = true;
-			}
-			
+            }
+            if($item['type'] == Item::$TYPE_ID['reskill']){
+                $shpit->stat_critical_rating = $shpit->stat_dodge_rating = $shpit->stat_stamina = $shpit->stat_strength = $shpit->stat_weapon_damage = 0;
+                $shpit->buy_price = 39;
+                $shpit->premium_item = true;
+            }
+            
             $player->setItemInInventory($shpit, 'shop_item'.($i+1).'_id');
 
-			if($shpit->premium_item)
-				$items_premium++;
-			if($quality == 2)
-				$items_rare++;
-			if($quality == 3)
-				$items_epic++;
-		}
+            if($shpit->premium_item)
+                $items_premium++;
+            if($quality == 2)
+                $items_rare++;
+            if($quality == 3)
+                $items_epic++;
+        }
     }
     
     public static function randomiseItem($item, $lvl){
@@ -219,28 +219,28 @@ class Utils{
     public static function getStatById($stat, $prefix=""){
         switch($stat){
             case 1:
-				return $prefix."stamina";
-			case 2:
-				return $prefix."strength";
-			case 3:
-				return $prefix."critical_rating";
-			case 4:
-				return $prefix."dodge_rating";
-			default:
-			    return null;
+                return $prefix."stamina";
+            case 2:
+                return $prefix."strength";
+            case 3:
+                return $prefix."critical_rating";
+            case 4:
+                return $prefix."dodge_rating";
+            default:
+                return null;
         }
     }
     
     public static function calcNeededCoins($param1){
-		$_loc_2 = Config::get('constants.cost_stat_base');
-		$_loc_3 = Config::get('constants.cost_stat_scale');
-		$_loc_4 = Config::get('constants.cost_stat_base_scale');
-		$_loc_5 = Config::get('constants.cost_stat_base_exp');
-		$_loc_6 = round($_loc_2 + ($_loc_3 * (pow($_loc_4 * $param1, $_loc_5))));
-		return $_loc_6;
-	}
-	
-	public static function boosterCost($param1, $param2){
+        $_loc_2 = Config::get('constants.cost_stat_base');
+        $_loc_3 = Config::get('constants.cost_stat_scale');
+        $_loc_4 = Config::get('constants.cost_stat_base_scale');
+        $_loc_5 = Config::get('constants.cost_stat_base_exp');
+        $_loc_6 = round($_loc_2 + ($_loc_3 * (pow($_loc_4 * $param1, $_loc_5))));
+        return $_loc_6;
+    }
+    
+    public static function boosterCost($param1, $param2){
          $_loc3_ = ceil(($param1 + 1) / 10);
          $_loc4_ = 0;
          if($param2)
@@ -262,73 +262,73 @@ class Utils{
     
     //$param1 - lvl
     public static function coinsPerTime($param1){
-		$_loc_2 = Config::get('constants.coins_per_time_base');
-		$_loc_3 = Config::get('constants.coins_per_time_scale');
-		$_loc_4 = Config::get('constants.coins_per_time_level_scale');
-		$_loc_5 = Config::get('constants.coins_per_time_level_exp');
-		$_loc_6 = $_loc_2 + ($_loc_3 * (pow($_loc_4 * $param1, $_loc_5)));
-		return round($_loc_6, 3);
-	}
+        $_loc_2 = Config::get('constants.coins_per_time_base');
+        $_loc_3 = Config::get('constants.coins_per_time_scale');
+        $_loc_4 = Config::get('constants.coins_per_time_level_scale');
+        $_loc_5 = Config::get('constants.coins_per_time_level_exp');
+        $_loc_6 = $_loc_2 + ($_loc_3 * (pow($_loc_4 * $param1, $_loc_5)));
+        return round($_loc_6, 3);
+    }
     
     //$param1 - lvl | $param 2 - ? | $param3 - duration | $param4 - mult?
     public static function getWorkCoinReward($param1, $param2, $param3, $param4 = 0){
-		$_loc_5 = Config::get('constants.work_effectiveness_max');
-		$_loc_6 = Config::get('constants.work_effectiveness_min');
-		$_loc_7 = Config::get('constants.work_duration_min');
-		$_loc_8 = Config::get('constants.work_duration_max');
-		$_loc_9 = ($param3 * ($_loc_5 - ($param3 - $_loc_7) / ($_loc_8 - $_loc_7) * ($_loc_5 - $_loc_6))) * Utils::coinsPerTime($param1) * (1 + $param2);
-		return round($_loc_9 * (1 + $param4));
-	}
-	
-	public static function getAbortedWorkCoinReward($param1, $param2, $param3, $param4 = 0){
-		$_loc_5 = Config::get('constants.work_abort_reward_factor');
-		$_loc_6 = Utils::getWorkCoinReward($param1, $param2, $param3, $param4);
-		return round($_loc_6 * $_loc_5);
-	}
-	
-	public static function checkPlayerStatus($time){
-		return (time() - $time < 60?true:false);
-	}
-	
-	public static function getCriticalHitPercentage($critical1, $critical2){
-		$_loc_3 = Config::get('constants.battle_critical_probability_min');
-		$_loc_4 = Config::get('constants.battle_critical_probability_base');
-		$_loc_5 = Config::get('constants.battle_critical_probability_max');
-		$_loc_6 = Config::get('constants.battle_critical_probability_exp_low');
-		$_loc_7 = Config::get('constants.battle_critical_probability_exp_high');
-		$_loc_8 = $critical1 / $critical2;	
-		$_loc_9 = 0;
-		if($_loc_8 <= 1)
-		{
-			$_loc_9 = (pow($_loc_8, $_loc_6)) * ($_loc_4 - $_loc_3) + $_loc_3;
-		}
-		else
-		{
-			$_loc_9 = (1 - (pow(1 / $_loc_8, $_loc_7))) * ($_loc_5 - $_loc_4) + $_loc_4;
-		}
-		return round($_loc_9, 3);
-	}
-	
-	public static function getDodgePercentage($dodge1, $dodge2){
-		$_loc_3 = Config::get('constants.battle_dodge_probability_min');
-		$_loc_4 = Config::get('constants.battle_dodge_probability_base');
-		$_loc_5 = Config::get('constants.battle_dodge_probability_max');
-		$_loc_6 = Config::get('constants.battle_dodge_probability_exp_low');
-		$_loc_7 = Config::get('constants.battle_dodge_probability_exp_high');
-		$_loc_8 = $dodge1 / $dodge2;
-		$_loc_9 = 0;
-		if($_loc_8 <= 1)
-		{
-			$_loc_9 = (pow($_loc_8, $_loc_6)) * ($_loc_4 - $_loc_3) + $_loc_3;
-		}
-		else
-		{
-			$_loc_9 = (1 - (pow(1 / $_loc_8, $_loc_7))) * ($_loc_5 - $_loc_4) + $_loc_4;
-		}
-		return round($_loc_9, 3);
-	}
-	
-	public static function duelHonorWinReward($honor1, $honor2, $guildDuelBooster=1, $guildDuelArtifactBooster=1){
+        $_loc_5 = Config::get('constants.work_effectiveness_max');
+        $_loc_6 = Config::get('constants.work_effectiveness_min');
+        $_loc_7 = Config::get('constants.work_duration_min');
+        $_loc_8 = Config::get('constants.work_duration_max');
+        $_loc_9 = ($param3 * ($_loc_5 - ($param3 - $_loc_7) / ($_loc_8 - $_loc_7) * ($_loc_5 - $_loc_6))) * Utils::coinsPerTime($param1) * (1 + $param2);
+        return round($_loc_9 * (1 + $param4));
+    }
+    
+    public static function getAbortedWorkCoinReward($param1, $param2, $param3, $param4 = 0){
+        $_loc_5 = Config::get('constants.work_abort_reward_factor');
+        $_loc_6 = Utils::getWorkCoinReward($param1, $param2, $param3, $param4);
+        return round($_loc_6 * $_loc_5);
+    }
+    
+    public static function checkPlayerStatus($time){
+        return (time() - $time < 60?true:false);
+    }
+    
+    public static function getCriticalHitPercentage($critical1, $critical2){
+        $_loc_3 = Config::get('constants.battle_critical_probability_min');
+        $_loc_4 = Config::get('constants.battle_critical_probability_base');
+        $_loc_5 = Config::get('constants.battle_critical_probability_max');
+        $_loc_6 = Config::get('constants.battle_critical_probability_exp_low');
+        $_loc_7 = Config::get('constants.battle_critical_probability_exp_high');
+        $_loc_8 = $critical1 / $critical2;    
+        $_loc_9 = 0;
+        if($_loc_8 <= 1)
+        {
+            $_loc_9 = (pow($_loc_8, $_loc_6)) * ($_loc_4 - $_loc_3) + $_loc_3;
+        }
+        else
+        {
+            $_loc_9 = (1 - (pow(1 / $_loc_8, $_loc_7))) * ($_loc_5 - $_loc_4) + $_loc_4;
+        }
+        return round($_loc_9, 3);
+    }
+    
+    public static function getDodgePercentage($dodge1, $dodge2){
+        $_loc_3 = Config::get('constants.battle_dodge_probability_min');
+        $_loc_4 = Config::get('constants.battle_dodge_probability_base');
+        $_loc_5 = Config::get('constants.battle_dodge_probability_max');
+        $_loc_6 = Config::get('constants.battle_dodge_probability_exp_low');
+        $_loc_7 = Config::get('constants.battle_dodge_probability_exp_high');
+        $_loc_8 = $dodge1 / $dodge2;
+        $_loc_9 = 0;
+        if($_loc_8 <= 1)
+        {
+            $_loc_9 = (pow($_loc_8, $_loc_6)) * ($_loc_4 - $_loc_3) + $_loc_3;
+        }
+        else
+        {
+            $_loc_9 = (1 - (pow(1 / $_loc_8, $_loc_7))) * ($_loc_5 - $_loc_4) + $_loc_4;
+        }
+        return round($_loc_9, 3);
+    }
+    
+    public static function duelHonorWinReward($honor1, $honor2, $guildDuelBooster=1, $guildDuelArtifactBooster=1){
         $_local5 = Config::get('constants.pvp_honor_win_exp_better');
         $_local6 = Config::get('constants.pvp_honor_win_exp_worse');
         $_local7 = 0;
@@ -375,9 +375,9 @@ class Utils{
         $nextDaySeconds = 86400;
         return strtotime(date("d-m-Y $param1:00:00"))+($param2?$nextDaySeconds:0);
     }
-	
+    
     public static function duelHonorLostReward($honor1, $honor2){
-		if ($honor1 == 0){
+        if ($honor1 == 0){
            return (0);
         };
         $_local3 = Config::get('constants.pvp_honor_lose_amount');
@@ -385,7 +385,7 @@ class Utils{
         $_local5 = Utils::duelHonorWinReward($honor1, $honor2);
         $_local6 = 0;
         if (($_local3 * $_local5) < ($_local4 * $honor2)){
-			$_local6 = ($_local3 * $_local5);
+            $_local6 = ($_local3 * $_local5);
         } else {
             $_local6 = ($_local4 * $honor2);
         };
@@ -402,21 +402,21 @@ class Utils{
     }
     
     public static function coinCostEnergyRefill($param1, $param2){
-		$_loc3_ = intval($param2 / Config::get('constants.quest_energy_refill_amount'));
+        $_loc3_ = intval($param2 / Config::get('constants.quest_energy_refill_amount'));
         $_loc4_ = 0;
         switch($_loc3_)
         {
             case 0:
-				$_loc4_ = Config::get('constants.quest_energy_refill1_cost_factor');
-				break;
+                $_loc4_ = Config::get('constants.quest_energy_refill1_cost_factor');
+                break;
             case 1:
-				$_loc4_ = Config::get('constants.quest_energy_refill2_cost_factor');
-				break;
+                $_loc4_ = Config::get('constants.quest_energy_refill2_cost_factor');
+                break;
             case 2:
-				$_loc4_ = Config::get('constants.quest_energy_refill3_cost_factor');
-				break;
+                $_loc4_ = Config::get('constants.quest_energy_refill3_cost_factor');
+                break;
             case 3:
-				$_loc4_ = Config::get('constants.quest_energy_refill4_cost_factor');
+                $_loc4_ = Config::get('constants.quest_energy_refill4_cost_factor');
         }
         $_loc5_ = $_loc4_ * Utils::coinsPerTime($param1);
         return round($_loc5_);
