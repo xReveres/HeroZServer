@@ -1,3 +1,12 @@
+# ⚠️ Projekt zarchiwizowany / Project archived
+
+To repozytorium zostało zarchiwizowane i nie jest już rozwijane.  
+This repository has been archived and is no longer maintained.
+
+➡️ Aktualna wersja projektu jest rozwijana tutaj:  
+➡️ The current version of the project is being developed here:  
+https://github.com/Owryn/HeroZServer
+
 # **HeroZServer**
 
 Projekt prywatnego serwera __HeroZ__.
